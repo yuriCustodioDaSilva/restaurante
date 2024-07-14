@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'api',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +81,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'USER': 'YuriCustodio',
+        'PASSWORD': 'SenhaF0rte_PraK&&;.',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
