@@ -16,15 +16,15 @@ const Login = () => {
     setInput2(e.target.value);
   };
 
-  const handleSubmit = async () => {
+  const handleCadastro = async () => {
     if (input1 && input2) {
       try {
-        const response = await axios.post('http://localhost:8000/api/usuarios/', {
+        const response = await axios.post('http://localhost:8000/usuarios/', {
           nome: input1,
           senha: input2,
           ativo: true,
         });
-        console.log('Resposta do backend:', response.data);
+        console.log('Resposta do backend (cadastro):', response.data);
         navigate('/home');
       } catch (error) {
         console.error('Erro ao cadastrar usuário:', error);
@@ -35,24 +35,43 @@ const Login = () => {
     }
   };
 
+  const handleLogin = async () => {
+    if (input1 && input2) {
+      try {
+        const response = await axios.post('http://localhost:8000/api/login/', {
+          nome: input1,
+          senha: input2,
+        });
+        console.log('Resposta do backend (login):', response.data);
+        navigate('/home');
+      } catch (error) {
+        console.error('Erro ao fazer login:', error);
+        alert('Usuário não encontrado ou senha incorreta.');
+      }
+    } else {
+      alert('Preencha todos os campos antes de fazer login.');
+    }
+  };
+
   return (
     <div className="login-container">
       <div className="login-box">
         <input
           type="text"
-          placeholder="Digite algo..."
+          placeholder="Digite o nome de usuário"
           value={input1}
           onChange={handleInputChange1}
         />
         <br />
         <input
-          type="text"
-          placeholder="Digite outra coisa..."
+          type="password"
+          placeholder="Digite a senha"
           value={input2}
           onChange={handleInputChange2}
         />
         <br />
-        <button onClick={handleSubmit}>Cadastrar</button>
+        <button onClick={handleCadastro}>Cadastrar</button>
+        <button onClick={handleLogin}>Entrar</button>
       </div>
     </div>
   );
