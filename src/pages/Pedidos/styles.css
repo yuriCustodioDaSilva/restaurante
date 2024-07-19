@@ -1,0 +1,34 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #a09898;
+    width: 100vw;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.acoes-nota {
+    display: flex;
+    flex-direction: row;
+    background-color: #004494;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.acoes-nota button {
+    flex: 1;
+    border: none;
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+}
+
+.acoes-nota button:hover {
+    background-color: #004494;
+}
